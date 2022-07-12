@@ -1,4 +1,3 @@
-import {OrbitControls} from "@react-three/drei";
 import {Suspense, useState} from "react";
 import React from "react";
 import { Canvas } from "react-three-fiber";
@@ -17,11 +16,12 @@ const Content = () => {
                 <button onClick={() => setAction("zombiehit")}>zombiehit</button>
             </div>
             <Canvas camera={{ position: [0, 0.2, 2] }}>
-                <pointLight intensity={2} position={[-1, 15, 10]} color="orange" />
+                <pointLight intensity={2} position={[-1, 15, 10]} color="green" />
+                <pointLight intensity={2} position={[10, 15, -1]} color="orange" />
                 <Suspense fallback={null}>
-                    <Kaireke className='canvasContainer' scale={85} action={action} position={[0.025, -0.9, 0]} />
+                    <Kaireke className='canvasContainer' scale={100} action={action} position={[0.025, -0.9, 0]} />
                 </Suspense>
-                <OrbitControls />
+                {/*<OrbitControls />*/}
             </Canvas>
         </>
     )

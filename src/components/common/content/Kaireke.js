@@ -6,13 +6,18 @@ import React, {useEffect, useRef} from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
 export default function Model({ ...props }) {
-  const group = useRef()
+  const group = useRef();
+  const previousAction = usePrevious(props.action);
   const { nodes, materials, animations } = useGLTF('/kaireke.glb')
   const { actions } = useAnimations(animations, group)
   useEffect(() => {
-    console.log(actions);
-    actions.twerkingdance.play();
-  }, [])
+    if (previousAction) {
+      actions[previousAction].fadeOut(0.2);
+      actions[props.action].stop();
+    }
+    actions[props.action].play();
+    actions[props.action].fadeIn(0.2);
+  }, [actions, props.action, previousAction]);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -27,3 +32,15 @@ export default function Model({ ...props }) {
 }
 
 useGLTF.preload('/kaireke.glb')
+
+function usePrevious(value) {
+  // The ref object is a generic container whose current property is mutable ...
+  // ... and can hold any value, similar to an instance property on a class
+  const ref = useRef();
+  // Store current value in ref
+  useEffect(() => {
+    ref.current = value;
+  }, [value]); // Only re-run if value changes
+  // Return previous value (happens before update in useEffect above)
+  return ref.current;
+}
