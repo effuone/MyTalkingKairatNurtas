@@ -1,0 +1,15 @@
+.controls {
+    margin-top: -100px;
+    position: absolute;
+    top: 0;
+    display: flex;
+}
+
+button {
+    border-radius: 4px;
+    color: #000000;
+    margin: 1rem;
+}
+.canvasContainer {
+    margin-top: 50px;
+}
