@@ -1,13 +1,14 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 const Header = () => {
     return(
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">My Talking Kaireke</Navbar.Brand>
+          <Navbar.Brand href="/">My Talking Kaireke</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#features">Music</Nav.Link>
-            <Nav.Link href="#pricing">Play</Nav.Link>
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/music">Music</Nav.Link>
+            <Nav.Link as={Link} to="/play">Play</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
