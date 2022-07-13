@@ -1,11 +1,20 @@
-import {Suspense, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import React from "react";
 import { Canvas } from "react-three-fiber";
 import './Content.module.css'
 import Kaireke from "./Kaireke";
-
+import SongService from "../../../API/SongService";
 const Content = () => {
     const [action, setAction] = useState("Idle");
+    const [songs, setSongs] = useState([])
+    const [currentSong, setCurrentSong] = useState(songs[0])
+    const fetchSongs = () => {
+        setSongs(await SongService.getSongs().data)
+    }
+    useEffect()
+    const changeSong = () => {
+        
+    }
     return (
         <>
             <div className="controls">
@@ -14,6 +23,7 @@ const Content = () => {
                 <button onClick={() => setAction("snakedance")}>Snakedance</button>
                 <button onClick={() => setAction("twerkingdance")}>twerkingdance</button>
                 <button onClick={() => setAction("zombiehit")}>zombiehit</button>
+                <button onClick={changeSong}>zombiehit</button>
             </div>
             <Canvas camera={{ position: [0, 0.2, 2] }}>
                 <pointLight intensity={2} position={[-1, 15, 10]} color="green" />
