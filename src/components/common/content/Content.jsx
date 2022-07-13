@@ -2,6 +2,7 @@ import {Suspense, useEffect, useState} from "react";
 import React from "react";
 import { Canvas } from "react-three-fiber";
 import Kaireke from "./Kaireke";
+import Newkaireke from './Newkaireke'
 import useAudio from "../../../hooks/useAudio";
 import SongService from "../../../API/SongService";
 import { Howl } from "howler";
@@ -86,10 +87,10 @@ const Content = () => {
                 top: '38%', left: '45%', zIndex: '5'
             }} onClick={bodyHit}></div>
             <Canvas camera={{ position: [0, 0.2, 2] }} style={{zIndex: '0'}}>
-                <pointLight intensity={2} position={[-1, 15, 10]} color="green" />
-                <pointLight intensity={2} position={[10, 15, -1]} color="orange" />
+                <pointLight intensity={2} position={[-1, 15, 10]} color="blue"/>
+                <pointLight intensity={2} position={[10, 15, -1]} />
                 <Suspense fallback={null}>
-                    <Kaireke className='canvasContainer' scale={100} action={action} position={[0.025, -0.9, 0]} />
+                    <Kaireke scale={100} action={action} position={[0.025, -0.9, 0]} />
                 </Suspense>
             </Canvas>
         </>
