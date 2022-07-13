@@ -16,7 +16,6 @@ export default function Model({ ...props }) {
       actions[props.action].stop();
     }
     actions[props.action].play();
-    actions[props.action].fadeIn(0.2);
   }, [actions, props.action, previousAction]);
 
   return (

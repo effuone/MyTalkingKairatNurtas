@@ -7,7 +7,6 @@ const Header = () => {
           <Navbar.Brand href="/">My Talking Kaireke</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/about">About</Nav.Link>
-            <Nav.Link as={Link} to="/music">Music</Nav.Link>
             <Nav.Link as={Link} to="/play">Play</Nav.Link>
           </Nav>
         </Container>
