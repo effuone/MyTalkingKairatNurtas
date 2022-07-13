@@ -1,4 +1,6 @@
 section{
     height: 83.2vh;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
