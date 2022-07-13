@@ -75,11 +75,8 @@ const Content = () => {
     return (
         <>
             <div className="controls">
-                <button onClick={() => setAction("Idle")}>Idle</button>
-                <button onClick={() => headHit()}>Headhit</button>
                 <button onClick={() => setAction("snakedance")}>Snakedance</button>
                 <button onClick={() => setAction("twerkingdance")}>twerkingdance</button>
-                <button onClick={() => setAction("zombiehit")}>zombiehit</button>
                 <button onClick={toggle}>{playing ? "Pause" : "Play"}</button>
                 <button onClick={switchAudio}>Switch Music</button>
             </div>
