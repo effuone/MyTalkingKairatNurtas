@@ -22,6 +22,7 @@ const Content = () => {
     }
     useEffect(()=>{
         fetchSongs()
+        if(playing === true) setAction('twerkingdance')
     }, [])
 
     const switchAudio = () => {
@@ -30,6 +31,8 @@ const Content = () => {
     }
 
     useEffect(() => {
+        if(playing) setAction('twerkingdance')
+        else setAction('Idle')
         const timer = window.setInterval(() => {
             howIdle++;
             if(howIdle > 10 && action === "Idle" && playing !== false) {
