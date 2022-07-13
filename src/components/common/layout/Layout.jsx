@@ -8,7 +8,6 @@ const Layout = ({children}) => {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover'
         }}>
-
             {children}
         </section>
     )
